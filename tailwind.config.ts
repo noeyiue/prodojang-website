@@ -13,8 +13,21 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        Outfit : ["Outfit", "sans-serif"],
+        BaiJamjuree : ["Bai Jamjuree", "sans-serif"],
+       },
+       colors: {
+        navy: '#141E61',
+        grey: '#787A91',
+
+       },
+       fontSize: {
+        base: ['20px', '24px'],
+        lg: ['40px', '48px'],
+      }
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 };
 export default config;

@@ -27,7 +27,9 @@ const LoginForm = () => {
             <input id="default-checkbox" type="checkbox" value="" className="w-4 h-4 text-navy bg-gray-100 border-gray-300 rounded focus:text-navy dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
               <label htmlFor="default-checkbox" className="ms-2 text-base font-medium text-grey dark:text-gray-300">จำฉันไว้ในระบบ</label>
           </div>
-          <Link href="" className="text-base text-grey basis-1/2 text-right hover:text-blue-800">ลืมรหัสผ่าน?</Link>
+          <div className="flex basis-1/2">
+            <Link href="/forgot-password" className="text-base text-grey ml-auto hover:text-blue-800">ลืมรหัสผ่าน?</Link>
+          </div>
         </div>
         <MainButton type="submit" buttonText="เข้าสู่ระบบ"/>
         <p className="text-base text-grey">ยังไม่มีบัญชี? <Link href="/register" className="text-base text-navy hover:text-blue-800">ลงทะเบียนบัญชีใหม่</Link></p>

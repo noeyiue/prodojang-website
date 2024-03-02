@@ -7,8 +7,8 @@ import LoginForm from "../components/form/LoginForm";
 const login = () => {
   return (
     <div className="flex h-screen flex-row bg-grey">
-      <div className="basis-3/4 bg-white rounded-r-3xl flex flex-col">
-        <div>
+      <div className="basis-3/4 bg-basebg rounded-r-3xl flex flex-col">
+        <div className="flex justify-start">
           <HomeButton />
           <LanguageButton />
         </div>

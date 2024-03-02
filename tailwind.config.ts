@@ -21,7 +21,7 @@ const config: Config = {
        colors: {
         navy: '#141E61',
         grey: '#787A91',
-
+        basebg: "#EEEEEE"
        },
        fontSize: {
         base: ['20px', '24px'],

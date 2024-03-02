@@ -9,7 +9,7 @@ const MainButton = ({type , buttonText} : ButtonProps<string>) => {
   return (
     <button
       type={type}
-      className="btn font-BaiJamjuree btn-sm sm:btn-sm md:btn-md lg:btn-lg hover:bg-blue-800 bg-navy text-white w-full my-2.5"
+      className="btn font-BaiJamjuree btn-sm sm:btn-sm md:btn-md lg:btn-lg hover:bg-blue-800 bg-navy text-basebg w-full my-2.5"
     >
       {buttonText}
     </button>

@@ -1,5 +1,5 @@
 import React from "react";
-import LoginButton from "../components/buttons/LoginButton";
+import LoginButton from "../components/buttons/MainButton";
 import HomeButton from "../components/buttons/HomeButton";
 import LanguageButton from "../components/buttons/LanguageButton";
 import LoginForm from "../components/form/LoginForm";
@@ -7,15 +7,18 @@ import LoginForm from "../components/form/LoginForm";
 const login = () => {
   return (
     <div className="flex h-screen flex-row bg-grey">
-      <div className="basis-3/4 bg-white rounded-r-3xl">
+      <div className="basis-3/4 bg-white rounded-r-3xl flex flex-col">
         <div>
           <HomeButton />
           <LanguageButton />
         </div>
-        <div>
-          <p className="text-lg font-bold text-navy p-2 m-2">ยินดีต้อนรับ</p>
-          <LoginForm />
-          <LoginButton />
+        <div className="grow flex items-center justify-center">
+          <div className="w-7/12 h-1/2">
+            <p className="text-lg font-bold text-navy p-2 m-2 text-right">
+              ยินดีต้อนรับ
+            </p>
+            <LoginForm />
+          </div>
         </div>
       </div>
       <div className="basis-1/4">

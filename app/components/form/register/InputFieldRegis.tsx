@@ -1,15 +1,15 @@
 import React from "react";
-import { LoginInputs, RegisterInputs } from "./formtypes";
+import { LoginInputs, RegisterInputs } from "../formtypes";
 import { UseFormRegister } from "react-hook-form";
 
 interface InputFieldProp {
   type: string;
-  id: "password" | "username" | "cpassword";
+  id: keyof RegisterInputs;
   textlabel: string;
-  register: UseFormRegister<LoginInputs | RegisterInputs>;
+  register: UseFormRegister<RegisterInputs>;
 }
 
-const InputField = ({ type, id, textlabel, register }: InputFieldProp) => {
+const InputFieldRegis = ({ type, id, textlabel, register }: InputFieldProp) => {
   return (
     <div className="relative my-5">
       <input
@@ -26,4 +26,4 @@ const InputField = ({ type, id, textlabel, register }: InputFieldProp) => {
   );
 };
 
-export default InputField;
+export default InputFieldRegis;

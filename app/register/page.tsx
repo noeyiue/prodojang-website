@@ -1,7 +1,7 @@
 import React from "react";
 import HomeButton from "../components/buttons/HomeButton";
 import LanguageButton from "../components/buttons/LanguageButton";
-import RegisterForm from "../components/form/RegisterForm";
+import RegisterForm from "../components/form/register/RegisterForm";
 
 const Register = () => {
   return (

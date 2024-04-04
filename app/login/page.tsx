@@ -2,7 +2,7 @@ import React from "react";
 import LoginButton from "../components/buttons/MainButton";
 import HomeButton from "../components/buttons/HomeButton";
 import LanguageButton from "../components/buttons/LanguageButton";
-import LoginForm from "../components/form/LoginForm";
+import LoginForm from "../components/form/login/LoginForm";
 
 const login = () => {
   return (

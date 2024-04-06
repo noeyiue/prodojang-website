@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import Step from "../../stepper/Step";
-import NextStep from "../../stepper/NextStep";
+import Step from "./stepper/Step";
+import NextStep from "./stepper/NextStep";
 import StepOneForm from "./StepOneForm";
 
 

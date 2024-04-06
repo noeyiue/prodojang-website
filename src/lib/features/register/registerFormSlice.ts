@@ -9,7 +9,9 @@ export const registerFormSlice = createSlice({
   name: "register",
   initialState,
   reducers: {
-    setCurrentStep: (state, action: PayloadAction<number>) => {},
+    setCurrentStep: (state, action: PayloadAction<number>) => {
+      state.currentStep = action.payload;
+    },
   },
 });
 

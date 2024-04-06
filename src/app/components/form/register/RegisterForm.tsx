@@ -1,17 +1,13 @@
-"use client";
-
 import React from "react";
-import Step from "./stepper/Step";
-import NextStep from "./stepper/NextStep";
-import StepOneForm from "./StepOneForm";
+import Step from "./stepper/Steps";
+import StepForm from "./stepForm/StepForm";
 
 
-const RegisterForm = () => {
-  
+const RegisterForm = () => {  
   return (
     <div className="flex-col">
       <Step />
-      <StepOneForm />
+      <StepForm />
     </div>
   );
 };

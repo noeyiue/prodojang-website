@@ -1,25 +1,20 @@
-import React from "react";
-import SuccessStep from "./SuccessStep";
-import NextStep from "./NextStep";
+'use client';
 
-const Step = () => {
-  return (
-    <div className="flex justify-center">
-      <div className="flex w-3/4 justify-center">
-        <ol className="flex flex-row w-full">
-          <div className="flex basis-1/3">
-            <SuccessStep stepLabel="1" stepData="บัญชี" finished={true}/>
-          </div>
-          <div className="flex basis-1/3">
-            <NextStep stepLabel="2" stepData="ข้อมูลของยิม" lastStep={false}/>
-          </div>
-          <div className="flex basis-1/3">
-            <NextStep stepLabel="3" stepData="ข้อมูลติดต่อ" lastStep={true}/>
-          </div>
-        </ol>
-      </div>
-    </div>
-  );
-};
+import { useAppSelector } from '@/src/lib/hooks';
+import React from 'react'
+import CurrentStep from './CurrentStep';
+import { StepProps } from './stepperInterface';
+import SuccessStep from './SuccessStep';
+import NextStep from './NextStep';
+
+const Step = ({ labelNum, labelData } : StepProps) => {
+  const currentStep = useAppSelector((state) => state.register.currentStep);
+  if (labelNum === currentStep)
+    return <CurrentStep labelNum={labelNum} labelData={labelData} firstStep={labelNum === 1} lastStep={labelNum === 3}/>
+  else if (labelNum < currentStep)
+    return <SuccessStep labelNum={labelNum} labelData={labelData} firstStep={labelNum === 1}/>
+  else if (labelNum > currentStep)
+    return <NextStep labelNum={labelNum} labelData={labelData} lastStep={labelNum === 3}/>
+}
 
 export default Step;

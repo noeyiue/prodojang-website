@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { baiJamjuree } from "./fonts";
 import "./globals.css";
-import StoreProvider from "./storeProvider";
+import StoreProvider from "./StoreProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",

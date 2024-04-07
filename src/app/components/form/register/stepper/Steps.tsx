@@ -3,7 +3,7 @@ import Step from './Step';
 
 const Steps = () => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center mb-10">
       <div className="flex w-3/4 justify-center">
         <ol className="flex flex-row w-full">
           <div className="flex basis-1/3">

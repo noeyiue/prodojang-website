@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import NavButton from "../NavButton";
 import { useAppDispatch, useAppSelector } from "@/src/lib/hooks";
 import { setCurrentStep } from "@/src/lib/features/register/registerFormSlice";
-import InputField from "../../InputField";
+import InputField from "../../../inputs/InputField";
 
 const StepOneForm = () => {
   const currentStep = useAppSelector((state) => state.register.currentStep);

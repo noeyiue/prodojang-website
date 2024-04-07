@@ -3,7 +3,7 @@ import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import MainButton from "../../buttons/MainButton";
 import { LoginInputs } from "../formtypes";
-import InputField from "../InputField";
+import InputField from "../../inputs/InputField";
 import Link from "next/link";
 
 const LoginForm = () => {

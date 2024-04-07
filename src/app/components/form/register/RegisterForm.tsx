@@ -2,12 +2,13 @@ import React from "react";
 import Step from "./stepper/Steps";
 import StepForm from "./stepForm/StepForm";
 
-
-const RegisterForm = () => {  
+const RegisterForm = () => {
   return (
-    <div className="flex-col">
-      <Step />
-      <StepForm />
+    <div className="flex justify-center h-full">
+      <div className="flex-col w-5/6">
+        <Step />
+        <StepForm />
+      </div>
     </div>
   );
 };

@@ -9,53 +9,72 @@ function NavButton() {
   const currentStep = useAppSelector((state) => state.register.currentStep);
   const dispatch = useAppDispatch();
   const handlePrevious = () => {
-    dispatch(setCurrentStep(currentStep-1));
-  }
+    dispatch(setCurrentStep(currentStep - 1));
+  };
   return (
     <div className="mt-5">
-      <div className="flex">
-        <button
-          className='btn font-BaiJamjuree btn-sm sm:btn-sm md:btn-md lg:btn-lg hover:bg-blue-800 bg-navy text-basebg w-1/2 my-2.5"
+      <div className="flex justify-between">
+        {currentStep != 1 && (
+          <button
+            className='flex btn w-1/3 mr-2 bg-basebg text-navy border-navy font-BaiJamjuree btn-sm sm:btn-sm md:btn-md lg:btn-lg hover:bg-gray "
     >'
-          type="button"
-          onClick={() => handlePrevious()}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="w-6 h-6"
+            type="button"
+            onClick={() => handlePrevious()}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15.75 19.5 8.25 12l7.5-7.5"
-            />
-          </svg>
-          ก่อนหน้า
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 19.5 8.25 12l7.5-7.5"
+              />
+            </svg>
+            ก่อนหน้า
+          </button>
+        )}
         <button
-          className='btn font-BaiJamjuree btn-sm sm:btn-sm md:btn-md lg:btn-lg hover:bg-blue-800 bg-navy text-basebg w-1/2 my-2.5"
+          className='flex btn w-1/3 font-BaiJamjuree bg-navy text-basebg btn-sm sm:btn-sm md:btn-md lg:btn-lg hover:bg-blue-800 "
     >'
           type="submit"
         >
-          ถัดไป
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="m8.25 4.5 7.5 7.5-7.5 7.5"
-            />
-          </svg>
+          <span>{currentStep === 3 ? "ยืนยัน" : "ถัดไป"}</span>
+          {currentStep === 3 ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m4.5 12.75 6 6 9-13.5"
+              />
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m8.25 4.5 7.5 7.5-7.5 7.5"
+              />
+            </svg>
+          )}
         </button>
       </div>
       <p className="text-base text-grey mt-2">

@@ -53,7 +53,7 @@ const StepTwoForm = () => {
         />
         <div className="flex flex-row w-full">
           <SelectField
-            id="gym_city"
+            id="gym_province"
             textlabel="จังหวัด"
             isRequired={true}
             register={register}
@@ -71,7 +71,7 @@ const StepTwoForm = () => {
             className="mr-2"
           />
           <SelectField
-            id="gym_province"
+            id="gym_amphoe"
             textlabel="อำเภอ/เขต"
             isRequired={true}
             register={register}
@@ -89,8 +89,8 @@ const StepTwoForm = () => {
             className="mr-2"
           />
           <SelectField
-            id="gym_zip_code"
-            textlabel="เลขไปรษณีย์"
+            id="gym_district"
+            textlabel="ตำบล/แขวง"
             isRequired={true}
             register={register}
             errors={errors}
@@ -104,6 +104,16 @@ const StepTwoForm = () => {
                 title: "Female",
               },
             ]}
+            className="mr-2"
+          />
+           <InputField
+            id="gym_zip_code"
+            textlabel="เลขไปรษณีย์"
+            type="number"
+            isRequired={true}
+            register={register}
+            errors={errors}
+            
           />
         </div>
         <NavButton />

@@ -35,30 +35,29 @@ const LoginForm = () => {
           errors={errors}
           register={register}
         />
+        <MainButton type="submit" buttonText="เข้าสู่ระบบ" />
         <div className="flex flex-row">
           <div className="flex items-center mb-4 basis-1/2">
-            {/* <input id="default-checkbox" type="checkbox" value="" className="w-4 h-4 text-navy bg-gray-100 border-gray-300 rounded focus:text-navy dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-              <label htmlFor="default-checkbox" className="ms-2 text-base font-medium text-grey dark:text-gray-300">จำฉันไว้ในระบบ</label> */}
+            <p className="text-base text-grey">
+            ยังไม่มีบัญชี?{" "}
+            <Link
+              href="/register"
+              className="text-base text-navy hover:text-blue-800"
+            >
+              ลงทะเบียนบัญชีใหม่
+            </Link>
+          </p>
           </div>
           <div className="flex basis-1/2">
             <Link
               href="/forgot-password"
-              className="text-base text-grey ml-auto hover:text-blue-800"
+              className="text-base text-navy ml-auto hover:text-blue-800"
             >
               ลืมรหัสผ่าน?
             </Link>
           </div>
         </div>
-        <MainButton type="submit" buttonText="เข้าสู่ระบบ" />
-        <p className="text-base text-grey">
-          ยังไม่มีบัญชี?{" "}
-          <Link
-            href="/register"
-            className="text-base text-navy hover:text-blue-800"
-          >
-            ลงทะเบียนบัญชีใหม่
-          </Link>
-        </p>
+        
       </form>
     </div>
   );

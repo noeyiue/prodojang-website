@@ -4,21 +4,27 @@ import { useForm } from "react-hook-form";
 
 import NavButton from "../NavButton";
 import { useAppDispatch, useAppSelector } from "@/src/lib/hooks";
-import { setCurrentStep } from "@/src/lib/features/register/registerFormSlice";
+import { setCurrentStep, updateRegisterFormData } from "@/src/lib/features/register/registerFormSlice";
 import InputField from "../../../inputs/InputField";
 
 const StepThreeForm = () => {
   const currentStep = useAppSelector((state) => state.register.currentStep);
+  const formData = useAppSelector((state) => state.register.registerFormData);
   const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<RegisterInputs>();
+  } = useForm<RegisterInputs>({
+    defaultValues: {
+      ...formData
+    }
+  });
 
   async function processData(data: RegisterInputs) {
     console.log(data);
     dispatch(setCurrentStep(currentStep + 1));
+    dispatch(updateRegisterFormData(data));
   }
 
   return (

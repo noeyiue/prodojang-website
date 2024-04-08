@@ -16,9 +16,11 @@ const SelectField = ({
         <select
           {...register(`${id}`, { required: isRequired })}
           id={id}
+          defaultValue=""
           className="block px-2.5 pb-2.5 pt-4 w-full h-16 text-base text-grey bg-transparent rounded-lg border border-grey appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-navy peer"
         >
-          <option selected></option>
+          <option value="" disabled hidden />
+
           {options.map((option, i) => {
             return (
               <option key={i} value={option.id}>

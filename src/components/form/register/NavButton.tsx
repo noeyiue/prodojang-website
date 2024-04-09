@@ -2,8 +2,9 @@
 
 import React from "react";
 import Link from "next/link";
-import { useAppDispatch, useAppSelector } from "@/src/lib/hooks";
-import { setCurrentStep } from "@/src/lib/features/register/registerFormSlice";
+import { useAppDispatch, useAppSelector } from "@/src/lib/store/hooks";
+import { setCurrentStep } from "@/src/lib/store/features/register/registerFormSlice";
+import { PAGE_ROUTES } from "@/src/lib/constants/routes";
 
 function NavButton() {
   const currentStep = useAppSelector((state) => state.register.currentStep);
@@ -79,7 +80,7 @@ function NavButton() {
       </div>
       <p className="text-base text-grey mt-2">
         มีบัญชีแล้ว?{" "}
-        <Link href="/login" className="text-base text-navy hover:text-blue-800">
+        <Link href={PAGE_ROUTES.LOGIN} className="text-base text-navy hover:text-blue-800">
           เข้าสู่ระบบ
         </Link>
       </p>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useAppSelector } from '@/src/lib/hooks';
+import { useAppSelector } from '@/src/lib/store/hooks';
 import React from 'react'
 import CurrentStep from './CurrentStep';
 import { StepProps } from './stepperInterface';

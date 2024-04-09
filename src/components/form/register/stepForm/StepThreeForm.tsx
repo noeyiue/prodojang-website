@@ -3,12 +3,17 @@ import { RegisterInputs } from "../../formtypes";
 import { useForm } from "react-hook-form";
 
 import NavButton from "../NavButton";
-import { useAppDispatch, useAppSelector } from "@/src/lib/hooks";
-import { setCurrentStep, updateRegisterFormData } from "@/src/lib/features/register/registerFormSlice";
+import { useAppDispatch, useAppSelector } from "@/src/lib/store/hooks";
+import { updateRegisterFormData } from "@/src/lib/store/features/register/registerFormSlice";
 import InputField from "../../../inputs/InputField";
+import { usePostRegister } from "@/src/lib/api/auth";
+import { IApiResponse } from "@/src/lib/api/apiType";
+import { useRouter } from "next/router";
+
 
 const StepThreeForm = () => {
-  const currentStep = useAppSelector((state) => state.register.currentStep);
+  const router = useRouter()
+
   const formData = useAppSelector((state) => state.register.registerFormData);
   const dispatch = useAppDispatch();
   const {
@@ -17,14 +22,23 @@ const StepThreeForm = () => {
     formState: { errors },
   } = useForm<RegisterInputs>({
     defaultValues: {
-      ...formData
-    }
+      ...formData,
+    },
   });
 
   async function processData(data: RegisterInputs) {
     console.log(data);
-    dispatch(setCurrentStep(currentStep + 1));
     dispatch(updateRegisterFormData(data));
+    // call api here if 400 navigate to main page
+    const response: IApiResponse = await usePostRegister();
+    if (response.ok) {
+      router.push
+    } else {
+      // const errorMessage = await response.text();
+      console.log(`Error: errorMessage}`);
+      // console.log(`Error: ${errorMessage}`);
+
+    }
   }
 
   return (

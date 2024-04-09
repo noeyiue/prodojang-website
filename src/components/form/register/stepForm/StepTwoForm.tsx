@@ -5,8 +5,8 @@ import { RegisterInputs } from "../../formtypes";
 import { useForm } from "react-hook-form";
 
 import NavButton from "../NavButton";
-import { useAppDispatch, useAppSelector } from "@/src/lib/hooks";
-import { setCurrentStep, updateRegisterFormData } from "@/src/lib/features/register/registerFormSlice";
+import { useAppDispatch, useAppSelector } from "@/src/lib/store/hooks";
+import { setCurrentStep, updateRegisterFormData } from "@/src/lib/store/features/register/registerFormSlice";
 import InputField from "../../../inputs/InputField";
 import SelectField from "../../../inputs/SelectField";
 
@@ -29,7 +29,6 @@ const StepTwoForm = () => {
     console.log(data);
     dispatch(setCurrentStep(currentStep + 1));
     dispatch(updateRegisterFormData(data));
-    // call api here if 400 navigate to main page
   }
   return (
     <div className="flex flex-col">

@@ -5,6 +5,7 @@ import MainButton from "../../buttons/MainButton";
 import { LoginInputs } from "../formtypes";
 import InputField from "../../inputs/InputField";
 import Link from "next/link";
+import { PAGE_ROUTES } from "@/src/lib/constants/routes";
 
 const LoginForm = () => {
   const {
@@ -41,7 +42,7 @@ const LoginForm = () => {
             <p className="text-base text-grey">
             ยังไม่มีบัญชี?{" "}
             <Link
-              href="/register"
+              href={PAGE_ROUTES.REGISTER}
               className="text-base text-navy hover:text-blue-800"
             >
               ลงทะเบียนบัญชีใหม่
@@ -50,7 +51,7 @@ const LoginForm = () => {
           </div>
           <div className="flex basis-1/2">
             <Link
-              href="/forgot-password"
+              href={PAGE_ROUTES.FORGOT_PASSWORD}
               className="text-base text-navy ml-auto hover:text-blue-800"
             >
               ลืมรหัสผ่าน?

@@ -1,4 +1,4 @@
-import { RegisterInputs } from "@/src/app/components/form/formtypes";
+import { RegisterInputs } from "@/src/components/form/formtypes";
 
 export interface RegisterState {
     currentStep: number;

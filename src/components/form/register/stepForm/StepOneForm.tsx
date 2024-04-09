@@ -5,8 +5,8 @@ import { RegisterInputs } from "../../formtypes";
 import { useForm } from "react-hook-form";
 
 import NavButton from "../NavButton";
-import { useAppDispatch, useAppSelector } from "@/src/lib/hooks";
-import { setCurrentStep, updateRegisterFormData } from "@/src/lib/features/register/registerFormSlice";
+import { useAppDispatch, useAppSelector } from "@/src/lib/store/hooks";
+import { setCurrentStep, updateRegisterFormData } from "@/src/lib/store/features/register/registerFormSlice";
 import InputField from "../../../inputs/InputField";
 
 const StepOneForm = () => {

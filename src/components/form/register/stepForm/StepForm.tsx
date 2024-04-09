@@ -1,6 +1,6 @@
 "use client";
 
-import { useAppSelector } from "@/src/lib/hooks";
+import { useAppSelector } from "@/src/lib/store/hooks";
 import React from "react";
 import StepOneForm from "./StepOneForm";
 import StepTwoForm from "./StepTwoForm";

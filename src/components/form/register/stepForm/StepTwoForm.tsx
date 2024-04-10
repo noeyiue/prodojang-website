@@ -5,15 +5,15 @@ import { RegisterInputs } from "../../formtypes";
 import { useForm } from "react-hook-form";
 
 import NavButton from "../NavButton";
-import { useAppDispatch, useAppSelector } from "@/src/lib/store/hooks";
-import {
-  setCurrentStep,
-  updateRegisterFormData,
-} from "@/src/lib/store/features/register/registerFormSlice";
 import InputField from "../../../inputs/InputField";
 
 import { Address, CreateInput } from "thai-address-autocomplete-react";
 import toast from "react-hot-toast";
+import { useAppDispatch, useAppSelector } from "../../../../lib/store/hooks";
+import {
+  setCurrentStep,
+  updateRegisterFormData,
+} from "../../../../lib/store/features/register/registerFormSlice";
 
 const InputThaiAddress = CreateInput();
 
@@ -62,14 +62,13 @@ const StepTwoForm = () => {
         gym_amphoe: address.amphoe,
         gym_province: address.province,
         gym_zip_code: address.zipcode,
-      }
+      };
       console.log(data);
       dispatch(setCurrentStep(currentStep + 1));
       dispatch(updateRegisterFormData(data));
     } else {
       toast.error("กรุณาเลือกที่อยู่");
     }
-    
   }
   return (
     <div className="flex flex-col">

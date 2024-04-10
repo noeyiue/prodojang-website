@@ -4,13 +4,13 @@ import React from "react";
 import { RegisterInputs } from "../../formtypes";
 import { useForm } from "react-hook-form";
 
-import NavButton from "../NavButton";
-import { useAppDispatch, useAppSelector } from "@/src/lib/store/hooks";
+import { useAppDispatch, useAppSelector } from "../../../../lib/store/hooks";
 import {
   setCurrentStep,
   updateRegisterFormData,
-} from "@/src/lib/store/features/register/registerFormSlice";
+} from "../../../../lib/store/features/register/registerFormSlice";
 import InputField from "../../../inputs/InputField";
+import NavButton from "../NavButton";
 
 const StepOneForm = () => {
   const currentStep = useAppSelector((state) => state.register.currentStep);
@@ -27,7 +27,7 @@ const StepOneForm = () => {
       ...formData,
     },
   });
-  
+
   async function processData(data: RegisterInputs) {
     console.log(data);
     dispatch(setCurrentStep(currentStep + 1));
@@ -68,8 +68,10 @@ const StepOneForm = () => {
             message: "รหัสผ่านต้องยาวอย่างน้อย 8 ตัวอักษร",
           }}
           pattern={{
-            value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&+~|{}:;<>])[A-Za-z\d$@$!%*?&+~|{}:;<>]{8,15}$/,
-            message: "รหัสผ่านต้องประกอบไปด้วยอักษรภาษาอังกฤษตัวพิมพ์ใหญ่ พิมพ์เล็ก ตัวเลข และสัญลักษณ์ อย่างน้อย 1 ตัว",
+            value:
+              /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&+~|{}:;<>])[A-Za-z\d$@$!%*?&+~|{}:;<>]{8,15}$/,
+            message:
+              "รหัสผ่านต้องประกอบไปด้วยอักษรภาษาอังกฤษตัวพิมพ์ใหญ่ พิมพ์เล็ก ตัวเลข และสัญลักษณ์ อย่างน้อย 1 ตัว",
           }}
         />
         <InputField
@@ -79,7 +81,9 @@ const StepOneForm = () => {
           required={true}
           register={register}
           errors={errors}
-          validate={(value : string) => value === watch("password") || "รหัสผ่านไม่ตรงกัน"}
+          validate={(value: string) =>
+            value === watch("password") || "รหัสผ่านไม่ตรงกัน"
+          }
         />
         <NavButton />
       </form>

@@ -1,4 +1,4 @@
-export const API_ENDPOINT="http://localhost:8080"
+// export const API_ENDPOINT="http://localhost:8080"
 
 export const PAGE_ROUTES = {
     HOME: '/',
@@ -9,5 +9,5 @@ export const PAGE_ROUTES = {
 
 export const API_ROUTES = {
     // Auth
-    POST_REGISTER: `${API_ENDPOINT}/api/v1/auth/register`,
+    POST_REGISTER: `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/v1/auth/register`,
 }

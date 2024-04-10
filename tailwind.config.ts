@@ -3,9 +3,9 @@ import type { Config } from "tailwindcss";
 const config: Config = {
   content: [
     "./node_modules/flowbite-react/lib/**/*.js",
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -21,7 +21,7 @@ const config: Config = {
        colors: {
         navy: '#141E61',
         grey: '#787A91',
-
+        basebg: "#EEEEEE"
        },
        fontSize: {
         base: ['20px', '24px'],
@@ -29,6 +29,6 @@ const config: Config = {
       }
     },
   },
-  plugins: [require("daisyui"), require("flowbite/plugin")],
+  plugins: [require("daisyui"), require("flowbite/plugin"), require('@tailwindcss/forms'),],
 };
 export default config;

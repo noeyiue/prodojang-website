@@ -1,5 +1,4 @@
 export interface IApiResponse {
     ok: boolean;
-    // text: () => Promise<string>;
-    text: string;
+    text: () => Promise<string>;
 }

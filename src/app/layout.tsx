@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { baiJamjuree } from "./fonts";
 import "./globals.css";
 import StoreProvider from "./StoreProvider";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,6 +18,7 @@ export default function RootLayout({
     <html lang="th">
       <body className={baiJamjuree.className}>
         <StoreProvider>{children}</StoreProvider>
+        <div><Toaster/></div>
       </body>
     </html>
   );

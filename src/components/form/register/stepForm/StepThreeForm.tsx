@@ -1,5 +1,5 @@
 import React from "react";
-import { RegisterInputs } from "../../formtypes";
+import { ProcessRegisterInputs, RegisterInputs } from "../../formtypes";
 import { useForm } from "react-hook-form";
 
 import NavButton from "../NavButton";
@@ -8,7 +8,9 @@ import { updateRegisterFormData } from "@/src/lib/store/features/register/regist
 import InputField from "../../../inputs/InputField";
 import { usePostRegister } from "@/src/lib/api/auth";
 import { IApiResponse } from "@/src/lib/api/apiType";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import { handleFormData } from "./handleFormData";
 
 
 const StepThreeForm = () => {
@@ -27,17 +29,19 @@ const StepThreeForm = () => {
   });
 
   async function processData(data: RegisterInputs) {
-    console.log(data);
     dispatch(updateRegisterFormData(data));
-    // call api here if 400 navigate to main page
-    const response: IApiResponse = await usePostRegister();
+    console.log(data);
+    const processedData : ProcessRegisterInputs = handleFormData(data);
+    console.log(processedData);
+    
+    const response: IApiResponse = await usePostRegister(processedData);
     if (response.ok) {
-      router.push
+      toast.success('สร้างบัญชีสำเร็จ');
+      router.push(`/login`);
     } else {
-      // const errorMessage = await response.text();
-      console.log(`Error: errorMessage}`);
-      // console.log(`Error: ${errorMessage}`);
-
+      const errorMessage = await response.text();
+      console.log(`Error: ${errorMessage}`);
+      toast.error(errorMessage);
     }
   }
 
@@ -49,37 +53,54 @@ const StepThreeForm = () => {
             id="firstname_th"
             textlabel="ชื่อจริง - ไทย"
             type="text"
-            isRequired={true}
+            required={true}
             register={register}
             errors={errors}
             className="mr-2"
+            pattern={{
+              value: /^[ก-๏\s]+$/,
+              message: "กรุณากรอกเป็นภาษาไทย",
+            }}
           />
           <InputField
             id="lastname_th"
             textlabel="นามสกุล - ไทย"
             type="text"
-            isRequired={false}
+            required={false}
             register={register}
             errors={errors}
+            pattern={{
+              value: /^[ก-๏\s]+$/,
+              message: "กรุณากรอกเป็นภาษาไทย",
+            }}
           />
+          
         </div>
         <div className="flex flex-row justify-between w-full">
           <InputField
             id="firstname_en"
             textlabel="Firstname - En"
             type="text"
-            isRequired={true}
+            required={true}
             register={register}
             errors={errors}
             className="mr-2"
+            pattern={{
+              value: /^[a-zA-Z\s]+$/,
+              message: "กรุณากรอกเป็นภาษาอังกฤษ",
+            }}
           />
           <InputField
             id="lastname_en"
             textlabel="Lastname - En"
             type="text"
-            isRequired={false}
+            required={false}
             register={register}
             errors={errors}
+            pattern={{
+              value: /^[a-zA-Z\s]+$/,
+              message: "กรุณากรอกเป็นภาษาอังกฤษ",
+            }}
           />
         </div>
         <div className="flex justify-center w-full">
@@ -88,7 +109,7 @@ const StepThreeForm = () => {
               id="email"
               textlabel="อีเมล"
               type="email"
-              isRequired={true}
+              required={true}
               register={register}
               errors={errors}
             />
@@ -100,9 +121,17 @@ const StepThreeForm = () => {
               id="telephone"
               textlabel="หมายเลขโทรศัพท์"
               type="number"
-              isRequired={true}
+              required={true}
               register={register}
               errors={errors}
+              minLength={{
+                value: 10,
+                message: "หมายเลขโทรศัพท์ควรยาว 10 หลัก",
+              }}
+              maxLength={{
+                value: 10,
+                message: "หมายเลขโทรศัพท์ควรยาว 10 หลัก",
+              }}
             />
           </div>
         </div>

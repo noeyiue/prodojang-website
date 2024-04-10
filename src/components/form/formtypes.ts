@@ -21,3 +21,18 @@ export type RegisterInputs = {
   gym_district: string;
   telephone: string;
 };
+
+export type ProcessRegisterInputs = {
+  username: string;
+  email: string; 
+  password: string;
+  firstname_th: string;
+  lastname_th: string;
+  // firstname_en: string;
+  // lastname_en: string;
+  gym_address: string;
+  gym_name: string;
+  gym_zip_code: string;
+  telephone: string;
+};
+

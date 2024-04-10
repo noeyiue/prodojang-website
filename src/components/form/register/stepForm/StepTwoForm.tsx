@@ -1,16 +1,44 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { RegisterInputs } from "../../formtypes";
 import { useForm } from "react-hook-form";
 
 import NavButton from "../NavButton";
 import { useAppDispatch, useAppSelector } from "@/src/lib/store/hooks";
-import { setCurrentStep, updateRegisterFormData } from "@/src/lib/store/features/register/registerFormSlice";
+import {
+  setCurrentStep,
+  updateRegisterFormData,
+} from "@/src/lib/store/features/register/registerFormSlice";
 import InputField from "../../../inputs/InputField";
-import SelectField from "../../../inputs/SelectField";
+
+import { Address, CreateInput } from "thai-address-autocomplete-react";
+import toast from "react-hot-toast";
+
+const InputThaiAddress = CreateInput();
 
 const StepTwoForm = () => {
+  const [address, setAddress] = useState<Address>({
+    district: "", // ตำบล tambol
+    amphoe: "", // อำเภอ amphoe
+    province: "", // จังหวัด changwat
+    zipcode: "", // รหัสไปรษณีย์ postal code
+  });
+  const [isSelectAddress, setIsSelectAddress] = useState<boolean>(false);
+
+  const handleChange = (scope: string) => (value: string) => {
+    setAddress((oldAddr: Address) => ({
+      ...oldAddr,
+      [scope]: value,
+    }));
+  };
+
+  const handleSelect = (address: Address) => {
+    setAddress(address);
+    setIsSelectAddress(true);
+    console.log(address);
+  };
+
   const currentStep = useAppSelector((state) => state.register.currentStep);
   const formData = useAppSelector((state) => state.register.registerFormData);
   const dispatch = useAppDispatch();
@@ -21,14 +49,27 @@ const StepTwoForm = () => {
     formState: { errors },
   } = useForm<RegisterInputs>({
     defaultValues: {
-      ...formData
-    }
+      ...formData,
+    },
   });
 
   async function processData(data: RegisterInputs) {
-    console.log(data);
-    dispatch(setCurrentStep(currentStep + 1));
-    dispatch(updateRegisterFormData(data));
+    if (isSelectAddress) {
+      console.log(data);
+      data = {
+        ...data,
+        gym_district: address.district,
+        gym_amphoe: address.amphoe,
+        gym_province: address.province,
+        gym_zip_code: address.zipcode,
+      }
+      console.log(data);
+      dispatch(setCurrentStep(currentStep + 1));
+      dispatch(updateRegisterFormData(data));
+    } else {
+      toast.error("กรุณาเลือกที่อยู่");
+    }
+    
   }
   return (
     <div className="flex flex-col">
@@ -37,7 +78,7 @@ const StepTwoForm = () => {
           id="gym_name"
           textlabel="ชื่อยิม"
           type="text"
-          isRequired={true}
+          required={true}
           register={register}
           errors={errors}
         />
@@ -45,7 +86,7 @@ const StepTwoForm = () => {
           id="gym_address_1"
           textlabel="ที่อยู่ - บรรทัดที่ 1"
           type="text"
-          isRequired={true}
+          required={true}
           register={register}
           errors={errors}
         />
@@ -53,74 +94,47 @@ const StepTwoForm = () => {
           id="gym_address_2"
           textlabel="ที่อยู่ - บรรทัดที่ 2 (ไม่จำเป็น)"
           type="text"
-          isRequired={false}
+          required={false}
           register={register}
           errors={errors}
         />
         <div className="flex flex-row w-full">
-          <SelectField
-            id="gym_province"
-            textlabel="จังหวัด"
-            isRequired={true}
-            register={register}
-            errors={errors}
-            options={[
-              {
-                id: "male",
-                title: "Male",
-              },
-              {
-                id: "female",
-                title: "Female",
-              },
-            ]}
-            className="mr-2"
-          />
-          <SelectField
-            id="gym_amphoe"
-            textlabel="อำเภอ/เขต"
-            isRequired={true}
-            register={register}
-            errors={errors}
-            options={[
-              {
-                id: "male",
-                title: "Male",
-              },
-              {
-                id: "female",
-                title: "Female",
-              },
-            ]}
-            className="mr-2"
-          />
-          <SelectField
-            id="gym_district"
-            textlabel="ตำบล/แขวง"
-            isRequired={true}
-            register={register}
-            errors={errors}
-            options={[
-              {
-                id: "male",
-                title: "Male",
-              },
-              {
-                id: "female",
-                title: "Female",
-              },
-            ]}
-            className="mr-2"
-          />
-           <InputField
-            id="gym_zip_code"
-            textlabel="เลขไปรษณีย์"
-            type="number"
-            isRequired={true}
-            register={register}
-            errors={errors}
-            
-          />
+          <div className="relative mt-5 w-full mr-2">
+            <label className="text-base text-grey">ตำบล/แขวง</label>
+            <InputThaiAddress.District
+              value={address["district"]}
+              onChange={handleChange("district")}
+              onSelect={handleSelect}
+              className="h-10"
+            />
+          </div>
+          <div className="relative mt-5 w-full mr-2">
+            <label className="text-base text-grey">อำเภอ/เขต</label>
+            <InputThaiAddress.Amphoe
+              value={address["amphoe"]}
+              onChange={handleChange("amphoe")}
+              onSelect={handleSelect}
+              className="h-10"
+            />
+          </div>
+          <div className="relative mt-5 w-full mr-2">
+            <label className="text-base text-grey">จังหวัด</label>
+            <InputThaiAddress.Province
+              value={address["province"]}
+              onChange={handleChange("province")}
+              onSelect={handleSelect}
+              className="h-10"
+            />
+          </div>
+          <div className="relative mt-5 w-full">
+            <label className="text-base text-grey">เลขไปรษณีย์</label>
+            <InputThaiAddress.Zipcode
+              value={address["zipcode"]}
+              onChange={handleChange("zipcode")}
+              onSelect={handleSelect}
+              className="h-10"
+            />
+          </div>
         </div>
         <NavButton />
       </form>

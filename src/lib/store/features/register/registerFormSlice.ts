@@ -21,7 +21,7 @@ const initialState: RegisterState = {
     gym_amphoe: "",
     gym_district: "",
     telephone: "",
-  }
+  },
 };
 
 export const registerFormSlice = createSlice({
@@ -31,14 +31,18 @@ export const registerFormSlice = createSlice({
     setCurrentStep: (state, action: PayloadAction<number>) => {
       state.currentStep = action.payload;
     },
-    updateRegisterFormData: (state, action: PayloadAction<Partial<RegisterInputs>>) => {
+    updateRegisterFormData: (
+      state,
+      action: PayloadAction<Partial<RegisterInputs>>
+    ) => {
       state.registerFormData = {
         ...state.registerFormData,
-        ...action.payload
-      }
-    }
+        ...action.payload,
+      };
+    },
   },
 });
 
-export const { setCurrentStep, updateRegisterFormData } = registerFormSlice.actions;
+export const { setCurrentStep, updateRegisterFormData } =
+  registerFormSlice.actions;
 export default registerFormSlice.reducer;

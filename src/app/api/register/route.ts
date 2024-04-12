@@ -1,6 +1,6 @@
 import { ProcessRegisterInputs } from "@/src/components/form/formtypes";
-import { API_ROUTES } from "../constants/routes";
-import { IApiResponse } from "./apiType";
+import { API_ROUTES } from "../../../lib/constants/routes";
+import { IApiResponse } from "./registerType";
 
 export const usePostRegister = async (data : ProcessRegisterInputs): Promise<IApiResponse> => {
 

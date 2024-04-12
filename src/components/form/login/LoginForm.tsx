@@ -1,11 +1,14 @@
 "use client";
 import React from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import MainButton from "../../buttons/MainButton";
-import { LoginInputs } from "../formtypes";
+import { LoginInputs, RegisterInputs } from "../formtypes";
 import InputField from "../../inputs/InputField";
 import Link from "next/link";
 import { PAGE_ROUTES } from "@/src/lib/constants/routes";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+
 
 const LoginForm = () => {
   const {
@@ -14,8 +17,25 @@ const LoginForm = () => {
     watch,
     formState: { errors },
   } = useForm<LoginInputs>();
+  const router = useRouter();
 
-  const onSubmit: SubmitHandler<LoginInputs> = (data) => console.log(data);
+
+  async function onSubmit(data: LoginInputs) {
+    const response = await fetch('/api/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    });
+    const resJson = await response.json();
+    if (resJson.success) {
+      toast.success(resJson.message);
+      router.push('/member/dashboard');
+    } else {
+      toast.error(resJson.message);
+    }
+  }
 
   return (
     <div className="w-full h-full">
@@ -24,7 +44,7 @@ const LoginForm = () => {
           id="username"
           textlabel="ชื่อผู้ใช้"
           type="text"
-          isRequired={true}
+          required={true}
           errors={errors}
           register={register}
         />
@@ -32,7 +52,7 @@ const LoginForm = () => {
           id="password"
           textlabel="รหัสผ่าน"
           type="password"
-          isRequired={true}
+          required={true}
           errors={errors}
           register={register}
         />

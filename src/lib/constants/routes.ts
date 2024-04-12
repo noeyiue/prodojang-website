@@ -10,4 +10,6 @@ export const PAGE_ROUTES = {
 export const API_ROUTES = {
     // Auth
     POST_REGISTER: `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/v1/auth/register`,
+    POST_LOGIN: `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/v1/auth/login`,
+    GET_ACCOUNT: `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/v1/auth/account`,
 }

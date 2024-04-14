@@ -1,9 +1,12 @@
 import { jwtVerify } from 'jose';
 import { NextResponse, NextRequest } from 'next/server';
+import { getUserAccount } from './app/api/get-user/route';
+
 
 const jwtSecret = new TextEncoder().encode(process.env.NEXT_PUBLIC_JWT_SECRET);
 
 export async function middleware(request: NextRequest) {
+  
   if (request.nextUrl.pathname.startsWith('/member')) {
     const accessToken = request.cookies.get('accessToken');
     if (!accessToken) {
@@ -13,7 +16,7 @@ export async function middleware(request: NextRequest) {
     }
 
     try {
-      await jwtVerify(accessToken.value, jwtSecret);
+      await jwtVerify(accessToken.value, jwtSecret);      
       return NextResponse.next();
     } catch (error: any) {
       if (error.name === 'JWTExpired') {

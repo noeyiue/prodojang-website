@@ -18,7 +18,7 @@ const Register = () => {
         </div>
         <div className="grow flex items-center justify-center">
           <div className="w-3/4 h-3/4">
-            <p className="text-lg font-bold text-navy p-2 m-2 text-left">
+            <p className="text-3xl font-bold text-navy p-2 m-2 text-left">
               สร้างบัญชีของคุณ
             </p>
             <RegisterForm />

@@ -13,7 +13,7 @@ const login = () => {
         </div>
         <div className="grow flex items-center justify-center">
           <div className="w-7/12 h-1/2">
-            <p className="text-lg font-bold text-navy p-2 m-2 text-right">
+            <p className="text-3xl font-bold text-navy p-2 m-2 text-right">
               ยินดีต้อนรับ
             </p>
             <LoginForm />

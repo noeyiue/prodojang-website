@@ -36,7 +36,7 @@ function DropdownMenuButton({ pageName }: MenuButtonProps) {
   const subButtonMap: Record<string, string[]> = {
     "my-dojang": ["manage-course", "student-data"],
     "activity": ["x", "y", "z"],
-    "dojang-member": ["all-member", "register-parent", "add-student"],
+    "dojang-member": ["all-member", "add-student"],
     "payment": ["one", "two", "three"],
     "competition": ["1", "2"],
     "promotion-test": ["1", "2"],

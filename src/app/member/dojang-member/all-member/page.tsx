@@ -7,8 +7,8 @@ function allMember() {
     <div>
     <Slidebar />
     <UserNavbar />
-    <div className='pt-20 pl-64 min-h-screen bg-grey90'>
-      <span>add-student</span>
+    <div className='pt-20 pl-64 min-h-screen'>
+      <span>all-member</span>
     </div>
   </div>
   )

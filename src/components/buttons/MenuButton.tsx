@@ -1,12 +1,8 @@
 "use client";
 
 import {
-  BanknotesIcon,
-  BuildingStorefrontIcon,
   ChartBarIcon,
   InformationCircleIcon,
-  RocketLaunchIcon,
-  UserGroupIcon,
 } from "@heroicons/react/24/outline";
 import {
   ChartBarIcon as ChartBarIconSolid,
@@ -51,10 +47,7 @@ function MenuButton({ pageName }: MenuButtonProps) {
       textlabel = "- ข้อมูลนักเรียน";
       break;
     case "dojang-member/all-member":
-      textlabel = "- จัดการคอร์สเรียน";
-      break;
-    case "dojang-member/register-parent":
-      textlabel = "- เพิ่มผู้ปกครอง";
+      textlabel = "- นักเรียน (ไม่แน่ใจ)";
       break;
     case "dojang-member/add-student":
       textlabel = "- เพิ่มนักเรียน";
@@ -69,7 +62,7 @@ function MenuButton({ pageName }: MenuButtonProps) {
   return (
     <button
       className={`btn text-base w-full flex justify-start my-2 ${
-        isActive ? "bg-grey90 border-0 drop-shadow-lg" : "btn-ghost"
+        isActive ? "bg-gray-200 border-0 drop-shadow-lg" : "btn-ghost"
       }`}
       onClick={handleClick}
     >

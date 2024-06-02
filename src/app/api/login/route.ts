@@ -23,10 +23,12 @@ export async function POST(req: NextRequest) {
         maxAge: 24 * 60 * 60,
       }
     );
-    // cookies().set('refreshToken', resJson.refreshToken, {
-    //   httpOnly: true,
-    //   maxAge: 24 * 60 * 60,
-    // });
+    cookies().set(
+      'refreshToken', 
+      resJson.refresh_token, {
+      httpOnly: true,
+      maxAge: 24 * 60 * 60,
+    });
 
     delete resJson.accessToken;
     delete resJson.refreshToken;

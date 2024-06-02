@@ -33,6 +33,7 @@ const StepOneForm = () => {
     dispatch(setCurrentStep(currentStep + 1));
     dispatch(updateRegisterFormData(data));
   }
+  
   return (
     <div>
       <form onSubmit={handleSubmit(processData)}>

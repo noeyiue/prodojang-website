@@ -11,5 +11,7 @@ export const API_ROUTES = {
     // Auth
     POST_REGISTER: `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/v1/auth/register`,
     POST_LOGIN: `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/v1/auth/login`,
+    POST_REFRESH_TOKEN: `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/v1/auth/refresh-token`,
     GET_ACCOUNT: `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/v1/auth/account`,
+
 }

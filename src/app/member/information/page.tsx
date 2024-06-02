@@ -11,7 +11,7 @@ function Information() {
   <div>
     <Slidebar />
     <UserNavbar />
-    <div className='pt-20 pl-64 min-h-screen bg-grey90'>
+    <div className='pt-20 pl-64 min-h-screen'>
       <span>information</span>
     </div>
   </div>

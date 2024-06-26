@@ -1,6 +1,7 @@
-import { IStudentDataRow } from "../IStudentDataRow"
+import { INewStudentInfo } from "@/src/lib/store/features/member/dojang-member/add-student/INewStudent";
 
-export function filterStudentData(data: IStudentDataRow[], currentSearchValue: string) {
+
+export function filterStudentData(data: INewStudentInfo[], currentSearchValue: string) {
 return (
     data.filter(row => {
         if (currentSearchValue && currentSearchValue !== "") {

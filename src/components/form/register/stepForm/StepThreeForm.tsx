@@ -6,11 +6,11 @@ import NavButton from "../NavButton";
 import { useAppDispatch, useAppSelector } from "@/src/lib/store/hooks";
 import { updateRegisterFormData } from "@/src/lib/store/features/register/registerFormSlice";
 import InputField from "../../../inputs/InputField";
-import { usePostRegister } from "@/src/app/api/register/route";
+import { usePostRegister } from "@/src/api/register/route";
 import { IApiResponse } from "@/src/app/api/register/registerType";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import { handleFormData } from "./handleFormData";
+import { handleFormData } from "./helpers/handleFormData";
 
 
 const StepThreeForm = () => {

@@ -1,9 +1,9 @@
 "use client";
 
 import { setSearchValue } from "@/src/lib/store/features/member/dojang-member/memberFilterSlice";
-import { useAppDispatch, useAppSelector } from "@/src/lib/store/hooks";
+import { useAppDispatch } from "@/src/lib/store/hooks";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 function SearchBox() {
@@ -11,7 +11,10 @@ function SearchBox() {
   const dispatch = useAppDispatch();
 
   const searchValue = watch("search");
-  dispatch(setSearchValue(searchValue));
+  
+  useEffect(() => {
+    dispatch(setSearchValue(searchValue));
+  }, [searchValue])
 
   const handleSubmit = (e: any) => {
     e.preventDefault();

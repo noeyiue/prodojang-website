@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
       'refreshToken', 
       resJson.refresh_token, {
       httpOnly: true,
-      maxAge: 24 * 60 * 60,
+      maxAge: 24 * 60 * 60 * 30,
     });
 
     delete resJson.accessToken;

@@ -1,7 +1,7 @@
 import React from "react";
-import { StepProps } from "./stepperInterface";
+import { IStepProps } from "./IStepProps";
 
-const CurrentStep = ({ labelNum, labelData, firstStep, lastStep }: StepProps) => {
+const CurrentStep = ({ labelNum, labelData, firstStep, lastStep }: IStepProps) => {
   return (
     <div className="flex-row w-full">
       <div className="flex h-fit w-full ">

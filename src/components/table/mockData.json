@@ -5,7 +5,7 @@
       "nickname": "ไข่มุก",
       "parent_name": "ใหญ่",
       "phone_number": "123-456-7890",
-      "registration_date": "2024-06-01"
+      "registration_date": "01-06-2024"
     },
     {
       "student_id": "002",
@@ -13,7 +13,7 @@
       "nickname": "กัปตัน",
       "parent_name": "จุ๊บ",
       "phone_number": "456-789-0123",
-      "registration_date": "2024-06-02"
+      "registration_date": "02-06-2024"
     },
     {
       "student_id": "003",
@@ -21,87 +21,14 @@
       "nickname": "แชมป์",
       "parent_name": "อึ่ง",
       "phone_number": "789-012-3456",
-      "registration_date": "2024-06-03"
+      "registration_date": "03-06-2024"
     },
     {
-      "student_id": "003",
-      "full_name": "ฐิติกร อาจเอื้อ",
-      "nickname": "แชมป์",
+      "student_id": "004",
+      "full_name": "เจษฎา อาจเอื้อ",
+      "nickname": "เท็น",
       "parent_name": "อึ่ง",
       "phone_number": "789-012-3456",
-      "registration_date": "2024-06-03"
-    },
-    {
-      "student_id": "003",
-      "full_name": "ฐิติกร อาจเอื้อ",
-      "nickname": "แชมป์",
-      "parent_name": "อึ่ง",
-      "phone_number": "789-012-3456",
-      "registration_date": "2024-06-03"
-    },
-    {
-      "student_id": "003",
-      "full_name": "ฐิติกร อาจเอื้อ",
-      "nickname": "แชมป์",
-      "parent_name": "อึ่ง",
-      "phone_number": "789-012-3456",
-      "registration_date": "2024-06-03"
-    },
-    {
-      "student_id": "003",
-      "full_name": "ฐิติกร อาจเอื้อ",
-      "nickname": "แชมป์",
-      "parent_name": "อึ่ง",
-      "phone_number": "789-012-3456",
-      "registration_date": "2024-06-03"
-    },
-    {
-      "student_id": "003",
-      "full_name": "ฐิติกร อาจเอื้อ",
-      "nickname": "แชมป์",
-      "parent_name": "อึ่ง",
-      "phone_number": "789-012-3456",
-      "registration_date": "2024-06-03"
-    },
-    {
-      "student_id": "003",
-      "full_name": "ฐิติกร อาจเอื้อ",
-      "nickname": "แชมป์",
-      "parent_name": "อึ่ง",
-      "phone_number": "789-012-3456",
-      "registration_date": "2024-06-03"
-    },
-    {
-      "student_id": "003",
-      "full_name": "ฐิติกร อาจเอื้อ",
-      "nickname": "แชมป์",
-      "parent_name": "อึ่ง",
-      "phone_number": "789-012-3456",
-      "registration_date": "2024-06-03"
-    },
-    {
-      "student_id": "003",
-      "full_name": "ฐิติกร อาจเอื้อ",
-      "nickname": "แชมป์",
-      "parent_name": "อึ่ง",
-      "phone_number": "789-012-3456",
-      "registration_date": "2024-06-03"
-    },
-    {
-      "student_id": "003",
-      "full_name": "ฐิติกร อาจเอื้อ",
-      "nickname": "แชมป์",
-      "parent_name": "อึ่ง",
-      "phone_number": "789-012-3456",
-      "registration_date": "2024-06-03"
-    },
-    {
-      "student_id": "003",
-      "full_name": "ฐิติกร อาจเอื้อ",
-      "nickname": "แชมป์",
-      "parent_name": "อึ่ง",
-      "phone_number": "789-012-3456",
-      "registration_date": "2024-06-03"
+      "registration_date": "05-06-2024"
     }
   ]
-  

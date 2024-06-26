@@ -1,4 +1,4 @@
-import { ProcessRegisterInputs, RegisterInputs } from "../../formtypes";
+import { ProcessRegisterInputs, RegisterInputs } from "../../../formtypes";
 
 export const handleFormData = (data: RegisterInputs) => {
     let gym_address: string;

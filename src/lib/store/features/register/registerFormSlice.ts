@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RegisterState } from "./registerType";
+import { RegisterState } from "./IRegisterForm";
 import { RegisterInputs } from "@/src/components/form/formtypes";
 
 const initialState: RegisterState = {
